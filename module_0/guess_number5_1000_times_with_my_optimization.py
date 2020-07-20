@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[13]:
+# In[28]:
 
 
 '''Сначала устанавливаем любое random число, а потом вводим две переменных left=1 
     и right=100. Угадываемое число predict устанавливаем не как случайное число, 
-    а как середину диапазона между left и right. left и right. После чего проверяем, 
-    если number>predict, то сдвигаем левую границу, т.е. left=predict+1.
-    Если number<predict, то сдвигаем правую границу, т.е. right=predict, если оно, то выйти.'''
+    а как середину диапазона между left и right. После чего проверяем: 
+    если number>predict, то сдвигаем левую границу, т.е. left=predict+1,
+    если number<predict, то сдвигаем правую границу, т.е. right=predict-1, 
+    если number = predict, то число угадано, выйти.'''
 import numpy as np
 def game_core_v4(number):
     left = 1
@@ -20,9 +21,9 @@ def game_core_v4(number):
         count+=1
         predict = (left+right)//2
         if predict > number:
-            right = predict
+            right = predict - 1
         elif predict < number:
-            left = predict + 1       
+            left = predict + 1   
     return(count) # выход из цикла, если угадали
 
        
